@@ -1,0 +1,8 @@
+**/.py[cod]
+**/__pycache__
+**/.vscode
+**/.ipynb_checkpoints
+Pipfile.lock
+Dockerfile
+docker-compose.yml
+init.sql
