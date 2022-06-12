@@ -8,7 +8,9 @@ conn = create_engine(f'postgresql+psycopg2://{os.environ["POSTGRES_USER"]}:{os.e
 TIME_SERVER_DOWN = 99999.999
 
 hostnames = [
+    '132.248.3.70',
     '132.248.3.71',
+    '132.248.3.72',
 ]
 
 for hostname in hostnames:
@@ -25,5 +27,5 @@ for hostname in hostnames:
         conn.execute(f'INSERT INTO pings(ip_id, time_ms) VALUES ({ip_id}, {time_ms})')
     else:
         conn.execute(f'INSERT INTO pings(ip_id, time_ms) VALUES ({ip_id}, {TIME_SERVER_DOWN})')
-        
+
 conn.close()

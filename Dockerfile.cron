@@ -13,7 +13,8 @@ RUN pip3 install --no-cache --upgrade pip setuptools
 
 RUN chmod 4711 /bin/ping
 RUN mkdir /etc/periodic/30min
-RUN echo "*/30    *       *       *       *       run-parts /etc/periodic/30min" > /etc/crontabs/root
+RUN echo "*/30       *       *       *       *       run-parts /etc/periodic/30min" > /etc/crontabs/root
+RUN touch /etc/crontabs/cron.update
 
 COPY ["./cron/requirements.txt", "."]
 
@@ -21,6 +22,8 @@ RUN pip3 install -r requirements.txt
 
 RUN rm requirements.txt
 
-COPY ["./cron/ping.py","/etc/periodic/30min/ping.py"]
+COPY ["./cron/tasks/30min/","/etc/periodic/30min"]
+
+RUN chmod -R +x /etc/periodic/30min/*
 
 CMD ["crond", "-f","-l","8"]

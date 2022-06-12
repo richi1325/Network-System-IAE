@@ -1,13 +1,16 @@
 version: '3.4'
 
-services:  
-  astrosen:
-    build: 
+services:
+  cron:
+    build:
       context: .
       dockerfile: ./Dockerfile.cron
     env_file: .env
-    volumes: 
-      - "./cron/ping.py:/etc/periodic/30min/ping.py"
+    volumes:
+      - ./cron/tasks/30min:/etc/periodic/30min
+    depends_on:
+      - postgres
+  
   postgres:
     image: postgres:14.3
     restart: unless-stopped
@@ -18,18 +21,21 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_DB: ${POSTGRES_DB}
       PGDATA: /var/lib/postgresql/data/pgdata
-    volumes: 
+    volumes:
       - pgdata:/var/lib/postgresql/data/pgdata
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+  
   plot:
-    build: 
+    build:
       context: .
       dockerfile: ./Dockerfile.plot
     env_file: .env
     ports:
       - 5000:5000
-    volumes: 
+    volumes:
       - ./plot/app.py:/app/app.py
+    depends_on:
+      - postgres
 
 volumes:
   pgdata:
