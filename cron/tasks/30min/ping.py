@@ -5,7 +5,7 @@ import subprocess
 from sqlalchemy import create_engine
 
 conn = create_engine(f'postgresql+psycopg2://{os.environ["POSTGRES_USER"]}:{os.environ["POSTGRES_PASSWORD"]}@{os.environ["HOST"]}/{os.environ["POSTGRES_DB"]}').connect()
-TIME_SERVER_DOWN = 99999.999
+TIME_SERVER_DOWN = -1
 
 hostnames = [
     '132.248.3.70',

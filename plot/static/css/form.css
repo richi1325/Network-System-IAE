@@ -1,0 +1,11 @@
+body {
+    background-color: bg-slate-800;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+    color: #CA8A04;
+    margin-bottom: 16px;
+}

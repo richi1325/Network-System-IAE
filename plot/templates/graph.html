@@ -1,13 +1,18 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 <body style="font-family:arial, sans-serif">
     <h1>{{header}}</h1>
     <div id="chart" class="chart"></div>
+    <script type="text/javascript">
+        var graphs = {{graphJSON | safe}};
+        Plotly.plot('chart',graphs,{});        
+    </script>
 </body>
-
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script type="text/javascript">
-    var graphs = {{graphJSON | safe}};
-    Plotly.plot('chart',graphs,{});        
-</script>
 </html>
