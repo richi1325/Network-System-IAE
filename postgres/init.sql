@@ -8,30 +8,30 @@ CREATE TABLE pings(
 );
 
 CREATE TABLE propietarios(
-   id      SERIAL PRIMARY KEY          ,
-   propietario     VARCHAR(70) NOT NULL  
+   id      SERIAL PRIMARY KEY               ,
+   propietario   VARCHAR(70) NOT NULL UNIQUE 
 );
 
 CREATE TABLE modelos(
-   id    SERIAL PRIMARY KEY          ,
-   modelo        VARCHAR(30) NOT NULL  
+   id    SERIAL PRIMARY KEY                 ,
+   modelo        VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE TABLE estatus(
-   id    SERIAL PRIMARY KEY          ,
-   estatus       VARCHAR(25)  NOT NULL  
+   id    SERIAL PRIMARY KEY                  ,
+   estatus       VARCHAR(25)  NOT NULL UNIQUE
 );
 
 CREATE TABLE ips(
-   id    SERIAL PRIMARY KEY           ,
-   ip                  TEXT   NOT NULL,
-   mac          VARCHAR(20)           ,
-   descripcion         TEXT           ,
-   estatus_id           INT           ,
-   propietario_id       INT           ,
-   modelo_id            INT           ,
-   extension    VARCHAR(5)            ,
-   fecha_registro      DATE   NOT NULL,
+   id    SERIAL PRIMARY KEY                  ,
+   ip                  TEXT   NOT NULL UNIQUE,
+   mac          VARCHAR(20)                  ,
+   estatus_id           INT                  ,
+   descripcion         TEXT                  ,
+   propietario_id       INT                  ,
+   modelo_id            INT                  ,
+   extension    VARCHAR(5)                   ,
+   fecha_registro      DATE   NOT NULL       ,
    es_monitoreado   BOOLEAN   NOT NULL
 );
 

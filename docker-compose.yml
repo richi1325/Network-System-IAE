@@ -34,6 +34,8 @@ services:
       - 5000:5000
     depends_on:
       - postgres
+    volumes:
+      - ./plot:/app/
 
 volumes:
   pgdata:

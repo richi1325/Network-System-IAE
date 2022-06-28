@@ -1,6 +1,6 @@
 FROM python:3.9.13-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm nmap
 RUN ln -sf /usr/share/zoneinfo/Mexico/BajaNorte /etc/localtime
 RUN echo "Mexico/BajaNorte" > /etc/timezone
 
@@ -10,7 +10,7 @@ COPY ["./plot/package.json", "/app/"]
 WORKDIR /app
 RUN pip install -r requirements.txt
 RUN npm install
-RUN npx tailwindcss init
+RUN npx tailwindcss init -p
 
 COPY ["./plot/","."]
 

@@ -59,18 +59,19 @@
             <div class="flex flex-row justify-around">
                 <div class="flex flex-col">
                     <div class="mb-2">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="propietario">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="propietario_id">
                             Propietario:
                         </label>
                         <select
                             class="block text-gray-700 border rounded w-full py-3 px-4 pr-8 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="propietario" name="propietario">
+                            id="propietario_id" name="propietario_id" required>
+                            <option value="" selected disabled hidden>Seleccione una opción</option>
                             {{options_propietarios | safe}}
-                            <option>Otro:</option>
+                            <option value="Otro:">Otro:</option>
                         </select>
                     </div>
                     <script>
-                        document.getElementById("propietario").addEventListener("change", function () {
+                        document.getElementById("propietario_id").addEventListener("change", function () {
                             const propietario_div = document.getElementById("otro_propietario");
                             if (this.value === "Otro:") {
                                 propietario_div.outerHTML = `
@@ -93,17 +94,18 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="modelo">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="modelo_id">
                         Modelo:
                     </label>
                     <select
                         class="block text-gray-700 border rounded w-full py-3 px-4 pr-8 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="modelo" name="modelo">
+                        id="modelo_id" name="modelo_id" required>
+                        <option value="" selected disabled hidden>Seleccione una opción</option>
                         {{options_modelos | safe}}
-                        <option>Otro:</option>
+                        <option value="Otro:">Otro:</option>
                     </select>
                     <script>
-                        document.getElementById("modelo").addEventListener("change", function () {
+                        document.getElementById("modelo_id").addEventListener("change", function () {
                             const modelo_div = document.getElementById("otro_modelo");
                             if (this.value === "Otro:") {
                                 modelo_div.outerHTML = `

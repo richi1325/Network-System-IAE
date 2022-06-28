@@ -43,11 +43,43 @@ tbody tr:nth-child(even) {
 }
 
 tbody th {
-    background-color: #36c;
+    background-color: #bf9b30;
     color: #fff;
     text-align: left;
 }
 
 tbody tr:nth-child(even) th {
-    background-color: #25c;
+    background-color: #db8e1e;
+}
+
+.button_del{
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border-radius: 4px;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+}
+
+.button_act{
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border-radius: 4px;
+    border-radius: 4px;
+    background-color: green;
+    color: white;
+}
+
+.button_mon{
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border-radius: 4px;
+    background-color: gray;
+    color: white;
 }
