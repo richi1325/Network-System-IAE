@@ -6,3 +6,6 @@ Pipfile.lock
 Dockerfile
 docker-compose.yml
 init.sql
+**/package-lock.json
+**/node_modules
+.gitignore

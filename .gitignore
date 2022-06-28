@@ -4,4 +4,7 @@
 **/.ipynb_checkpoints
 **/env
 .env
-Pipfile.lock
+**/Pipfile.lock
+**/package-lock.json
+**/node_modules
+**/*.ipynb
