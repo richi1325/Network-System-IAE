@@ -10,4 +10,4 @@ To run the container it is necessary to execute the following command:
 docker-compose up -d --build
 ```
 
-Now you can interact with the project in `127.0.0.1:5000/<IP>` 
+Now you can interact with the project in `127.0.0.1:5000` 
