@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/tables.css">
+    <link rel="stylesheet" href="../static/css/tailwind.css">
+    <title>Sistema de Sensores de Red</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var propietarios_js = {{propietarios_json | safe}};
+        var modelos_js = {{modelos_json | safe}};
+    </script>
+</head>
+<body class="bg-gradient-to-r from-indigo-400 to-indigo-900">
+    <div id="editar" class="flex justify-center">
+    </div>
+    <div class="flex justify-center">
+        <div class="w-fit">
+            {{ table | safe }}
+        </div>
+    </div>
+    <br>
+    <script src="{{url_for('static', filename='js/edit.js')}}"></script>
+</body>
+</html>

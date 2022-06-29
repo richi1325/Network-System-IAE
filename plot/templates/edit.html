@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/form.css">
+    <link rel="stylesheet" href="../static/css/tailwind.css">
+    <title>Editar IP</title>
+</head>
+<body class="min-h-screen bg-gradient-to-r from-indigo-400 to-indigo-900 flex flex-col items-center justify-center">
+    <div class="w-full w-1/2">
+        <form class="flex flex-col justify-center bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/"
+            method="POST">
+            <h1 class="titulo">
+                Edita la IP a monitorear:
+            </h1>
+            <div class="flex flex-col justify-around">
+                <div class="flex flex-row justify-around">
+                    <div class="flex flex-col ">
+                        <div class="mb-2">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                IP:
+                            </label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="ip" type="text" name="ip" placeholder="" required>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="mac">
+                                Dirección MAC:
+                            </label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="mac" type="text" name="mac" placeholder="">
+                        </div>
+                        <div class="mb-2">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="extension">
+                                Extensión:
+                            </label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="extension" type="text" name="extension" placeholder="">
+                        </div>
+                    </div>
+                    <div class="flex flex-col pb-2">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">
+                            Descripción:
+                        </label>
+                        <textarea
+                            class="h-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            rows="8" cols="23" id="descripcion" name="descripcion"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row justify-around">
+                <div class="flex flex-col">
+                    <div class="mb-2">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="propietario_id">
+                            Propietario:
+                        </label>
+                        <select
+                            class="block text-gray-700 border rounded w-full py-3 px-4 pr-8 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="propietario_id" name="propietario_id" required>
+                            <option value="" selected disabled hidden>Seleccione una opción</option>
+                            {{options_propietarios | safe}}
+                            <option value="Otro:">Otro:</option>
+                        </select>
+                    </div>
+                    <script>
+                        document.getElementById("propietario_id").addEventListener("change", function () {
+                            const propietario_div = document.getElementById("otro_propietario");
+                            if (this.value === "Otro:") {
+                                propietario_div.outerHTML = `
+                                    <div class="mb-2" id="otro_propietario">                        
+                                    <p class="text-gray-700 text-sm font-bold w-full py-2">
+                                        Nombre del propietario:
+                                    </p>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="propietario-input" type="text" name="propietario-input" placeholder="" required>
+                                    </div>`;
+                            } else {
+                                propietario_div.outerHTML = `
+                                    <div class="mb-2" id="otro_propietario">
+                                    </div>`;
+                            }
+                        });
+                    </script>
+                    <div class="mb-2" id="otro_propietario">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="modelo_id">
+                        Modelo:
+                    </label>
+                    <select
+                        class="block text-gray-700 border rounded w-full py-3 px-4 pr-8 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="modelo_id" name="modelo_id" required>
+                        <option value="" selected disabled hidden>Seleccione una opción</option>
+                        {{options_modelos | safe}}
+                        <option value="Otro:">Otro:</option>
+                    </select>
+                    <script>
+                        document.getElementById("modelo_id").addEventListener("change", function () {
+                            const modelo_div = document.getElementById("otro_modelo");
+                            if (this.value === "Otro:") {
+                                modelo_div.outerHTML = `
+                                    <div class="mb-2" id="otro_modelo">                        
+                                    <p class="text-gray-700 text-sm font-bold w-full py-2">
+                                        Nombre del modelo:
+                                    </p>
+                                    <input
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="modelo-input" type="text" name="modelo-input" placeholder="" required>
+                                    </div>`;
+                            } else {
+                                modelo_div.outerHTML = `
+                                    <div class="mb-2" id="otro_modelo">
+                                    </div>`;
+                            }
+                        });
+                    </script>
+                    <div class="mb-2" id="otro_modelo">
+                    </div>
+                </div>
+            </div>
+            <input
+                class="bg-blue-900 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit" value="Registrar">
+            </input>
+        </form>
+    </div>
+</body>
+
+</html>
