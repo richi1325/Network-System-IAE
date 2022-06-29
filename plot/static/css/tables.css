@@ -83,3 +83,29 @@ tbody tr:nth-child(even) th {
     background-color: gray;
     color: white;
 }
+
+.button_edit{
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border-radius: 4px;
+    background-color: purple;
+    color: white;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+    color: #F0EBE3;
+    margin-bottom: 16px;
+}
+
+.titulo_form{
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+    color: #CA8A04;
+    margin-bottom: 16px;
+}

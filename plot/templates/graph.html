@@ -11,18 +11,20 @@
 </head>
 <body class="bg-gradient-to-r from-indigo-400 to-indigo-900">
     <div class="text-center bg-gray-50 text-gray-800 py-20 px-6">
-        <h1 class="text-5xl font-bold mt-0 mb-6">Información de la IP: {{ip}}</h1>
+        <h1 class="titulo">Información de la IP: {{ip}}</h1>
     </div>
     <div id="chart" class="flex justify-center w-2/3"></div>
     <script type="text/javascript">
         var graphs = {{graphJSON | safe}};
         Plotly.plot('chart',graphs,{});
     </script>
+    <br>
     <div class="text-center bg-gray-50 text-gray-800 py-20 px-6">
-        <h1 class="text-5xl font-bold mt-0 mb-6">Rastreo de puertos:</h1>
+        <h1 class="titulo">Rastreo de puertos:</h1>
     </div>
     <div class="flex justify-center">
         {{ table | safe }} 
     </div>
+   <br>
 </body>
 </html>
